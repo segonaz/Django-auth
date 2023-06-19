@@ -1,7 +1,6 @@
-from django.urls import path
-
 from authapp import views
 from authapp.apps import AuthappConfig
+from django.urls import path
 
 app_name = AuthappConfig.name
 urlpatterns = [

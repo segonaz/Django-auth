@@ -1,3 +1,4 @@
+from authapp import forms as authapp_forms
 from django.contrib.auth import get_user_model, login, logout
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.tokens import \
@@ -12,8 +13,6 @@ from django.urls import reverse_lazy
 from django.utils.http import urlsafe_base64_decode
 from django.views import View
 from django.views.generic import CreateView, TemplateView, UpdateView
-
-from authapp import forms as authapp_forms
 
 from .utils import SendEmailForVerify
 
