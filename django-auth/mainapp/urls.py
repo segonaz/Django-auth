@@ -1,5 +1,4 @@
 from django.urls import path
-
 from mainapp.apps import MainappConfig
 from mainapp.views import IndexView
 
