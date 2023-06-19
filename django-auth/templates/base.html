@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {% load static %}
+
+  <meta charset="UTF-8"/>
+  <link rel="stylesheet" href="{% static '/css/bootstrap.min.css' %}"/>
+
+  {% block more_css %}
+  {% endblock more_css %}
+
+  <title>
+    {% block title %}
+    Django auth base app
+    {% endblock title %}
+  </title>
+</head>
+
+<body>
+<div class="container my-4">
+  <a href="{% url 'mainapp:index' %}"> Main Page </a>
+  <hr/>
+
+  {% block content %}
+
+  {% if user.is_authenticated %}
+  <h4>Logged in : {{ user.get_current_name }}</h4>
+  <a href="{% url 'authapp:logout' %}"> Log out </a>
+  <br>
+  <a href="{% url 'authapp:profile' %}"> Profile </a>
+  <hr/>
+  {% else %}
+  <a href="{% url 'authapp:login' %}"> Log in </a>
+  <br>
+  <a href="{% url 'authapp:register' %}"> Register </a>
+  {% endif %}
+  <br>
+  <a href="{% url 'authapp:password_reset' %}"> Change password </a>
+  {% endblock content %}
+</div>
+  <script src="{% static '/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static '/js/popper.min.js' %}"></script>
+
+  {% block add_js %}
+  {% endblock add_js %}
+
+</body>
+</html>
